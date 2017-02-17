@@ -1,0 +1,24 @@
+<div class="top-divider1"></div>
+<div class="top-divider"></div>
+<section id="contact">
+<div [hidden]="hasBeenSubmitted">
+<div class="contact-form">
+<form (ngSubmit)="register(newsletterForm, $event)" #newsletterForm="ngForm" novalidate>
+<h1>CONTACT US</h1>
+  <div>
+    <label for="contactname">NAME: </label>
+    <input type="text" id="contactname" name="contactname" [(ngModel)]="model.contactname" placeholder="Your name" /><br><br>
+  </div>
+  <div>
+    <label for="contactemail">EMAIL: </label>
+    <input type="text" id="contactemail" name="contactemail" [(ngModel)]="model.contactemail" placeholder="Your email" ng-pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" /><br><br>
+  </div>
+  <label>MESSAGE: </label><br>
+  <textarea rows="4" cols="50" name="comment">
+Enter message here...</textarea><br>
+  <button class="contact-btn" type="submit">SEND MESSAGE</button>
+</form></div>
+</div>
+<div class="submited" [hidden]="!hasBeenSubmitted">You have submitted! Thank you {{model.contactname}}</div>
+</section>
+
